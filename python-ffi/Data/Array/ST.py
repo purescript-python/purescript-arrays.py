@@ -1,5 +1,6 @@
-empty = lambda: []
+import functools
 
+empty = lambda: []
 
 
 def peekImpl(just):
@@ -12,9 +13,12 @@ def peekImpl(just):
     return lambda nothing: lambda i: lambda xs: lambda: _peekImpl(nothing, i, xs)
 
 
-def _pokeImpl(i, a, xs, unit):
+def _pokeImpl(i, a, xs):
     if i >= 0 and i < len(xs):
         xs[i] = a
+        return True
+    else:
+        return False
 
 
 poke = lambda i: lambda a: lambda xs: lambda: _pokeImpl(i, a, xs)
@@ -42,13 +46,6 @@ pushAll = lambda as_: lambda xs: lambda: _pushAllImpl(as_, xs)
 #     };
 #   };
 # };
-
-
-def _shiftImpl(just, nothing, xs):
-    if len(xs) > 0:
-        return just(xs[1:])
-    else:
-        return nothing
 
 
 shiftImpl = (
@@ -111,7 +108,9 @@ freeze = copyImpl
 thaw = copyImpl
 
 
-sortByImpl = lambda comp: lambda xs: lambda: sorted(xs, cmp=comp)
+sortByImpl = lambda comp: lambda xs: lambda: sorted(
+    xs, key=functools.cmp_to_key(lambda a, b: comp(a, b))
+)
 
 
 def toAssocArray(xs):
