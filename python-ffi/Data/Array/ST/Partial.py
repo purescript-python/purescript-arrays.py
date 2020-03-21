@@ -6,5 +6,4 @@ def _pokeImpl(xs, i, a):
     xs[i] = a
 
 
-def pokeImpl(i):
-    return lambda a: lambda xs: lambda: _pokeImpl(xs, i, a)
+pokeImpl = lambda i: lambda a: lambda xs: lambda: _pokeImpl(xs, i, a)
