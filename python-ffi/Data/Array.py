@@ -63,6 +63,9 @@ def unconsImpl(empty):
     return next_f
 
 
+globals()["uncons'"] = unconsImpl
+
+
 def _indexImpl(just, nothing, xs, i):
     if i < 0 or i >= len(xs):
         return nothing
@@ -133,7 +136,7 @@ def concat(xss):
     return result
 
 
-globals()["filter"] = lambda f: lambda xs: list(_buitins["filter"](f, xs))
+filter = lambda f: lambda xs: list(_buitins["filter"](f, xs))
 
 
 def partition(f):
