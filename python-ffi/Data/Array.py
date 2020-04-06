@@ -91,7 +91,7 @@ findIndexImpl = lambda just: lambda nothing: lambda f: lambda xs: _findIndexImpl
 
 
 def _findLastIndexImpl(just, nothing, f, xs):
-    for i, x in enumerate(xs):
+    for i, x in reversed(enumerate(xs)):
         if f(x):
             return just(i)
     return nothing
