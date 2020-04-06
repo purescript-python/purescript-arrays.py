@@ -47,7 +47,7 @@ length = lambda xs: len(xs)
 
 cons = lambda e: lambda l: [e, *l]
 
-sonc = lambda xs: lambda x: [*xs, x]
+snoc = lambda xs: lambda x: [*xs, x]
 
 
 def unconsImpl(empty):
