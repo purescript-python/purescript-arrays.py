@@ -5,7 +5,7 @@ _buitins = {"range": range, "filter": filter}
 globals()["range"] = lambda start: lambda end: list(_buitins["range"](start, end))
 
 
-replicate = lambda count: lambda value: [value for _ in range(count)]
+replicate = lambda count: lambda value: [value for _ in _buitins["range"](count)]
 
 
 def _mkFromFoldableImpl():

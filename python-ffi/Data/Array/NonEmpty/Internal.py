@@ -3,12 +3,12 @@ import functools
 
 def fold1Impl(f):
     def result(xs):
-        # acc = xs[0]
-        # lxs = len(xs)
-        # for i in range(1, lxs):
-        #     acc = f(acc)(xs[i])
-        # return acc
-        return functools.reduce(lambda acc, cur: f(acc)(cur), xs)
+        acc = xs[0]
+        lxs = len(xs)
+        for i in range(1, lxs):
+            acc = f(acc)(xs[i])
+        return acc
+        # return functools.reduce(lambda acc, cur: f(acc)(cur), xs)
 
     return result
 
