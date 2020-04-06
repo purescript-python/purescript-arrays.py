@@ -90,6 +90,17 @@ findIndexImpl = lambda just: lambda nothing: lambda f: lambda xs: _findIndexImpl
 )
 
 
+def _findLastIndexImpl(just, nothing, f, xs):
+    for i, x in enumerate(xs):
+        if f(x):
+            return just(i)
+    return nothing
+
+
+def findLastIndexImpl(just):
+    return lambda nothing: lambda f: lambda xs: _findLastIndexImpl(just, nothing, f, xs)
+
+
 def _insertAtImpl(just, nothing, i, a, l):
     if i < 0 or i >= len(l):
         return nothing
