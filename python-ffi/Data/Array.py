@@ -129,7 +129,7 @@ def _deleteAtImpl(just, nothing, i, l):
     return just(l[:i] + l[i + 1 :])
 
 
-_deleteAt = lambda just: lambda nothing: lambda i: lambda l: _insertAtImpl(
+_deleteAt = lambda just: lambda nothing: lambda i: lambda l: _deleteAtImpl(
     just, nothing, i, l
 )
 
