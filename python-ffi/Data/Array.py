@@ -123,14 +123,14 @@ _insertAt = lambda just: lambda nothing: lambda i: lambda a: lambda l: _insertAt
 )
 
 
-def _deleteAtImpl(just, nothing, i, a, l):
+def _deleteAtImpl(just, nothing, i, l):
     if i < 0 or i >= len(l):
         return nothing
     return just(l[:i] + l[i + 1 :])
 
 
-_deleteAt = lambda just: lambda nothing: lambda i: lambda a: lambda l: _insertAtImpl(
-    just, nothing, i, a, l
+_deleteAt = lambda just: lambda nothing: lambda i: lambda l: _insertAtImpl(
+    just, nothing, i, l
 )
 
 
