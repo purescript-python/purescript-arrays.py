@@ -142,7 +142,7 @@ def _updateAtImpl(just, nothing, i, a, l):
     return just(ll)
 
 
-_updateAt = lambda just: lambda nothing: lambda i: lambda a: lambda l: _insertAtImpl(
+_updateAt = lambda just: lambda nothing: lambda i: lambda a: lambda l: _updateAtImpl(
     just, nothing, i, a, l
 )
 
