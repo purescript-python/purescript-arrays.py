@@ -111,7 +111,7 @@ def findLastIndexImpl(just):
 
 
 def _insertAtImpl(just, nothing, i, a, l):
-    if i < 0 or i >= len(l):
+    if i < 0 or i > len(l):
         return nothing
     ll = list(l)
     ll.insert(i, a)
