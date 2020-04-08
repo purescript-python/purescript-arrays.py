@@ -2,7 +2,16 @@ import functools
 
 _buitins = {"range": range, "filter": filter}
 
-globals()["range"] = lambda start: lambda end: list(_buitins["range"](start, end))
+
+def _rangeImpl(start):
+    def ap(end):
+        step = 1 if start <= end else -1
+        return list(_buitins["range"](start, end, step))
+
+    return ap
+
+
+globals()["range"] = _rangeImpl
 
 
 replicate = lambda count: lambda value: [value for _ in _buitins["range"](count)]
