@@ -137,7 +137,7 @@ _deleteAt = lambda just: lambda nothing: lambda i: lambda l: _deleteAtImpl(
 def _updateAtImpl(just, nothing, i, a, l):
     if i < 0 or i >= len(l):
         return nothing
-    ll = l.copy()
+    ll = list(l)
     ll[i] = a
     return just(ll)
 
