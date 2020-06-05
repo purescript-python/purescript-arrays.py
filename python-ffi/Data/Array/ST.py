@@ -32,7 +32,7 @@ popImpl = (
 
 
 def _pushAllImpl(as_, xs):
-    xs.extends(as_)
+    xs.extend(as_)
     return len(xs)
 
 
