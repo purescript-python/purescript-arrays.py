@@ -114,4 +114,6 @@ sortByImpl = lambda comp: lambda xs: lambda: sorted(
 
 
 def toAssocArray(xs):
-    return [{"value": x, "index": i} for i, x in enumerate(xs)]
+    def ap():
+        return [{"value": x, "index": i} for i, x in enumerate(xs)]
+    return ap
