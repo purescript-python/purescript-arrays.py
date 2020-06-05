@@ -182,6 +182,6 @@ slice = lambda s: lambda e: lambda xs: xs[s:e]
 take = lambda n: lambda xs: xs[:n]
 drop = lambda n: lambda xs: xs[n:]
 
-zipWith = lambda f: lambda xs: lambda ys: list(map(f, zip(xs, ys)))
+zipWith = lambda f: lambda xs: lambda ys: list(map(lambda t: f(t[0])(t[1]), zip(xs, ys)))
 
 unsafeIndexImpl = lambda xs: lambda n: xs[n]
