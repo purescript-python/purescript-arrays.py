@@ -179,8 +179,8 @@ sortImpl = lambda f: lambda xs: sorted(
 
 slice = lambda s: lambda e: lambda xs: xs[s:e]
 
-take = lambda n: lambda xs: xs[:n]
-drop = lambda n: lambda xs: xs[n:]
+take = lambda n: lambda xs: xs[:max(n, 0)]
+drop = lambda n: lambda xs: xs[max(n, 0):]
 
 zipWith = lambda f: lambda xs: lambda ys: list(map(lambda t: f(t[0])(t[1]), zip(xs, ys)))
 
