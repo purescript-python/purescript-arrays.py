@@ -104,8 +104,8 @@ unsafeThaw = lambda xs: lambda: xs
 
 copyImpl = lambda xs: lambda: xs[:]
 
-freeze = copyImpl
-thaw = copyImpl
+freeze = lambda xs: lambda: tuple(xs)
+thaw = lambda xs: lambda: list(xs)
 
 
 sortByImpl = lambda comp: lambda xs: lambda: sorted(
