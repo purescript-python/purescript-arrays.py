@@ -109,7 +109,7 @@ thaw = lambda xs: lambda: list(xs)
 
 
 sortByImpl = lambda comp: lambda xs: lambda: sorted(
-    xs, key=functools.cmp_to_key(lambda a, b: comp(a, b))
+    xs, key=functools.cmp_to_key(lambda a, b: comp(a)(b))
 )
 
 
