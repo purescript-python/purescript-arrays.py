@@ -146,7 +146,7 @@ _updateAt = lambda just: lambda nothing: lambda i: lambda a: lambda l: _updateAt
     just, nothing, i, a, l
 )
 
-reverse = lambda xs: reversed(xs)
+reverse = lambda xs: list(reversed(xs))
 
 
 def concat(xss):
