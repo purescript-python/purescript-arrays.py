@@ -98,9 +98,9 @@ splice = lambda i: lambda howMany: lambda bs: lambda xs: lambda: _spliceImpl(
 # };
 
 
-unsafeFreeze = lambda xs: lambda: xs
+unsafeFreeze = lambda xs: lambda: tuple(xs)
 
-unsafeThaw = lambda xs: lambda: xs
+unsafeThaw = lambda xs: lambda: list(xs)
 
 copyImpl = lambda xs: lambda: xs[:]
 
