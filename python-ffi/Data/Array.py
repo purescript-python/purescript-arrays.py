@@ -33,11 +33,9 @@ def _mkFromFoldableImpl():
 
     def listToArray(lst):
         result = []
-        count = 0
         xs = lst
         while xs is not None:
-            result[count] = xs.head
-            count += 1
+            result.append(xs.head)
             xs = xs.tail
         return result
 
