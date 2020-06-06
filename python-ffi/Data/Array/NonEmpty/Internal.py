@@ -68,4 +68,4 @@ def _mkTraverselImpl():
     return lambda apply: lambda map_: lambda f: kernel(apply, map_, f)
 
 
-traverselImpl = _mkTraverselImpl()
+traverse1Impl = _mkTraverselImpl()
