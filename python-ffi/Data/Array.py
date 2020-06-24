@@ -47,7 +47,10 @@ def _mkFromFoldableImpl():
 
     return result
 
-
+# TODO: discuss performance consideration with alternative implementation
+# at least should we use 2-tuple instead of class?
+# current implementation is aiming to mimic JS implementation as much as possible
+# same problem in NonEmpty.Internal.py
 fromFoldableImpl = _mkFromFoldableImpl()
 
 length = lambda xs: len(xs)
@@ -111,6 +114,8 @@ def findLastIndexImpl(just):
 def _insertAtImpl(just, nothing, i, a, l):
     if i < 0 or i > len(l):
         return nothing
+    # TODO: discuss performance consideration with alternative implementation
+    # (*l[i-1], a, *l[i:])
     ll = list(l)
     ll.insert(i, a)
     return just(tuple(ll))
