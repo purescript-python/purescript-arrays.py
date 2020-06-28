@@ -42,7 +42,7 @@ def _mkTraverselImpl():
         while xs is not emptyList:
             arr.append(xs.head)
             xs = xs.tail
-        return arr
+        return tuple(arr)
 
     def kernel(apply, map_, f):
         def buildFrom(x, ys):
