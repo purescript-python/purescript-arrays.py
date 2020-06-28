@@ -1,21 +1,19 @@
 import functools
+import itertools
+_range = range
+_filter = filter
 
-_buitins = {"range": range, "filter": filter}
-
-
-def _rangeImpl(start):
+def range(start, _range=_range):
     def ap(end):
-        step = 1 if start <= end else -1
-        return tuple(_buitins["range"](start, end + step, step))
+        step = (-1, 1)[start <= end]
+        return tuple(_range(start, end + step, step))
 
     return ap
 
+def replicate(count, _repeat=itertools.repeat):
+    return lambda value: tuple(_repeat(value, count))
 
-globals()["range"] = _rangeImpl
-
-
-replicate = lambda count: lambda value: tuple([value for _ in _buitins["range"](count)])
-
+# The following code hasn't got specially improved.
 
 def _mkFromFoldableImpl():
     class Cons:
